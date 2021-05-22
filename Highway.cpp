@@ -10,10 +10,6 @@
 void Highway::changeSpeed(int newSpeed)
 {
     speedLimit = newSpeed;
-    for( auto* vehicle : vehicles )
-    {
-        vehicle->setSpeed(speedLimit);
-    }
 }
 
 void Highway::addVehicleInternal(Vehicle* v)

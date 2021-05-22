@@ -4,6 +4,8 @@
 #include <algorithm>
 #include "Vehicle.h"
 
+struct HighwayPatrol;
+
 struct Highway
 {
     void changeSpeed(int newSpeed);
