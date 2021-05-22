@@ -6,6 +6,9 @@
 struct HighwayPatrol : Vehicle 
 {
     HighwayPatrol();
+
+    HighwayPatrol(const HighwayPatrol&) = default;
+    HighwayPatrol& operator=(const HighwayPatrol&) = default;
     
     void scanHighway(Highway* h);
 

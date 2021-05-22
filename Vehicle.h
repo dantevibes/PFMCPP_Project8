@@ -12,10 +12,10 @@ struct Vehicle
     Vehicle& operator=(const Vehicle&) = default;
     
     virtual void setSpeed(int s);
-    
     virtual void tryToEvade();
 
     int speed = 0;
+    
 protected:
     std::string name;
 };

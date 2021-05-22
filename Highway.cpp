@@ -18,7 +18,6 @@ void Highway::changeSpeed(int newSpeed)
 
 void Highway::addVehicleInternal(Vehicle* v)
 {
-    Highway* thisHW = this;
     /*
     depending on the derived type, call the member function that doesn't evade the cops. 
     */
@@ -26,43 +25,34 @@ void Highway::addVehicleInternal(Vehicle* v)
     {
         car->closeWindows();
     }
-    else if(HighwayPatrol* hwPatrol = dynamic_cast<HighwayPatrol*>(v))
+    else if(Motorcycle* chopper = dynamic_cast<Motorcycle*>(v))
     {
-        hwPatrol->scanHighway(thisHW);
-    }
-    else if(Motorcycle* cyclist = dynamic_cast<Motorcycle*>(v))
-    {
-        cyclist->setSpeed(80);
+        chopper->setSpeed(105);
     }
     else if(SemiTruck* truck = dynamic_cast<SemiTruck*>(v))
     {
-        
+        truck->setSpeed(60);
     }
 }
 
 void Highway::removeVehicleInternal(Vehicle* v)
 {
-    Highway* thisHW = this;
     /*
     depending on the derived type, call the member function that tries to evade the cops. 
 
     trucks pull over, but cars and bikes try to evade!!
     */
-    if(Car* vehic = dynamic_cast<Car*>(v))
+    if(Car* car = dynamic_cast<Car*>(v))
     {
-        vehic->tryToEvade();
+        car->tryToEvade();
     }
-    else if(HighwayPatrol* hwPatrol = dynamic_cast<HighwayPatrol*>(v))
+    else if(Motorcycle* chopper = dynamic_cast<Motorcycle*>(v))
     {
-        //hwPatrol->pullOver();
+        chopper->tryToEvade();
     }
-    else if(Motorcycle* vehic = dynamic_cast<Motorcycle*>(v))
+    else if(SemiTruck* truck = dynamic_cast<SemiTruck*>(v))
     {
-        vehic->tryToEvade();
-    }
-    else if(SemiTruck* vehic = dynamic_cast<SemiTruck*>(v))
-    {
-        
+        truck->pullOver();
     }
 }
 
