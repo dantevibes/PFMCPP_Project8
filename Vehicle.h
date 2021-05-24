@@ -13,9 +13,8 @@ struct Vehicle
     
     virtual void setSpeed(int s);
     virtual void tryToEvade();
-
-    int speed = 0;
     
 protected:
+    int speed = 0;
     std::string name;
 };

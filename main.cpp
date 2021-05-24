@@ -64,13 +64,6 @@ your task:
 
  Wait for my code review.
  */
-void addToHighway(Highway hw, std::vector<Vehicle> vec)
-{
-    for( auto& v : vec )
-    {
-        hw.addVehicle(&v);
-    }
-}
 
 int main()
 {
