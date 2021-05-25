@@ -7,6 +7,7 @@ SemiTruck& SemiTruck::operator=(const SemiTruck&) = default;
 
 void SemiTruck::honkHorn()
 {
+    setSpeed(60);
     std::cout << "*HONK HOONK*  Let me on!" << std::endl;
 }
 
