@@ -3,6 +3,8 @@
 #include <string>
 #include <iostream>
 
+struct HighwayPatrol;
+
 struct Vehicle
 {
     Vehicle(const std::string& n);
@@ -13,7 +15,8 @@ struct Vehicle
     
     virtual void setSpeed(int s);
     virtual void tryToEvade();
-    
+
+    friend HighwayPatrol;
 protected:
     int speed = 0;
     std::string name;
