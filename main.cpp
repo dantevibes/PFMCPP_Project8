@@ -45,6 +45,12 @@ your task:
 #include <algorithm>
 #include <cassert>
 
+#include "Highway.h"
+#include "Car.h"
+#include "Motorcycle.h"
+#include "SemiTruck.h"
+#include "HighwayPatrol.h"
+
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
 
@@ -104,24 +110,46 @@ int main()
      
      use the vector member function 'emplace_back' to construct your car/truck/motorcycle instances in-place
      */
-    cars.emplace_back("janice"); //constructing the first Car instance in-place in the cars vector
+    cars.emplace_back("Janice"); //constructing the first Car instance in-place in the cars vector
     
     /*
      construct 2 more Car instances via emplace_back.
      */
-    
+    cars.emplace_back("Barshan");
+    cars.emplace_back("Shyana");
     /*
      now reserve and emplace_back your Trucks and Motorcyles
      */
+    motorcycles.reserve(2);
+    motorcycles.emplace_back("Hell's Angel 1");
+    motorcycles.emplace_back("Hell's Angel 2");
+    
+    trucks.reserve(5);
+    trucks.emplace_back("Hank");
+    trucks.emplace_back("Hunk");
+    trucks.emplace_back("Honk");
+    trucks.emplace_back("Hink");
+    trucks.emplace_back("Henk");
     
     
-    
-    
-    assert(false);
     //add the cars, motorcycles and trucks to the highway using range-based for() loops: for( element : vec ) { ... }
     //be careful to not accidentally make element copies when iterating.
-    
+    for( Car& c : cars )
+    {
+        highway.addVehicle(&c);
+    }
+    for( Motorcycle& m : motorcycles )
+    {
+        highway.addVehicle(&m);
+    }
+    for( SemiTruck& t : trucks )
+    {
+        highway.addVehicle(&t);
+    }
+
+
     HighwayPatrol cop;
+    
     cop.scanHighway(&highway);
 
     std::cout << "done" << std::endl;
