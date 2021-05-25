@@ -1,11 +1,13 @@
 #include "SemiTruck.h"
 
 SemiTruck::SemiTruck(const std::string& n) : Vehicle(n) {}
+SemiTruck::~SemiTruck() = default;
+SemiTruck::SemiTruck(const SemiTruck&) = default;
+SemiTruck& SemiTruck::operator=(const SemiTruck&) = default;
 
-void SemiTruck::setSpeed(int s)
+void SemiTruck::honkHorn()
 {
-    std::cout << "\nHighway is adjusting " << name << "'s speed to " << s << " mph" << std::endl;
-    speed = s;
+    std::cout << "*HONK HOONK*  Let me on!" << std::endl;
 }
 
 void SemiTruck::pullOver()

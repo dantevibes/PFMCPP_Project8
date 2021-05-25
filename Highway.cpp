@@ -23,11 +23,11 @@ void Highway::addVehicleInternal(Vehicle* v)
     }
     else if(auto* chopper = dynamic_cast<Motorcycle*>(v))
     {
-        chopper->setSpeed(105);
+        chopper->lanesplitAndRace(105);
     }
     else if(auto* truck = dynamic_cast<SemiTruck*>(v))
     {
-        truck->setSpeed(60);
+        truck->honkHorn();
     }
 }
 
